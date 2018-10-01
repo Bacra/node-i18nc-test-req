@@ -8,6 +8,7 @@ var debug	= require('debug')('i18nc-test-req');
 
 exports = module.exports = requireAfterWrite;
 exports.ROOT_PATH = __dirname;
+exports.BUILD = false;
 
 function requireAfterWrite(subpath)
 {
@@ -23,7 +24,8 @@ function requireAfterWrite(subpath)
 exports.requireAfterWriteReal = requireAfterWriteReal;
 function requireAfterWriteReal(file, data)
 {
-	if (!process.env.TEST_BUILD || arguments.length == 1)
+	if (arguments.length == 1) return _require(file);
+	if (!exports.BUILD && !process.env.TEST_BUILD)
 	{
 		return _require(file);
 	}
