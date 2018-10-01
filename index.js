@@ -61,7 +61,7 @@ function requireAfterWriteReal(file, data)
 			break;
 	}
 
-	var realfile = path.join(__dirname, file);
+	var realfile = path.join(exports.ROOT_PATH, file);
 	mkdirp.sync(path.dirname(realfile));
 	fs.writeFileSync(realfile, data);
 
