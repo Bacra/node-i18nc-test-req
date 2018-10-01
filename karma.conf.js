@@ -13,8 +13,8 @@ module.exports = function(config)
 	config.set(
 	{
 		basePath: 'test/',
-		files: ['test_*.js'],
-		preprocessors: {'test_*.js': ['browserify']},
+		files: ['test_browser_*.js'],
+		preprocessors: {'test_browser_*.js': ['browserify']},
 		browserify:
 		{
 			debug: true,

@@ -5,44 +5,7 @@ var testReq	= require('../');
 
 testReq.ROOT_PATH	= __dirname;
 
-describe('#base', function()
-{
-	it('#require', function()
-	{
-		var requireAfterWrite = testReq('base');
-		expect(requireAfterWrite('base.json')).to.eql({data: 1});
-	});
-
-	describe('#check result', function()
-	{
-		beforeEach(function()
-		{
-			testReq.BUILD = false;
-		});
-		afterEach(function()
-		{
-			testReq.BUILD = false;
-		});
-
-		checkResult('base');
-	});
-
-	describe('#build', function()
-	{
-		beforeEach(function()
-		{
-			testReq.BUILD = true;
-		});
-		afterEach(function()
-		{
-			testReq.BUILD = false;
-		});
-
-		checkResult('tmp');
-	});
-});
-
-
+module.exports = checkResult;
 function checkResult(type)
 {
 	var requireAfterWrite = testReq(type);
