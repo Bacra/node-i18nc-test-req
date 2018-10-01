@@ -101,4 +101,12 @@ function _checkTextWrapCode(code)
 {
 	return code.substr(0, 26) == 'function textWrapCode(){\n\n';
 }
+
+exports.code2arr = function code2arr(code)
+{
+	return code.toString().trim().split('\n')
+		.filter(function(val)
+		{
+			return val.trim();
+		});
 }
