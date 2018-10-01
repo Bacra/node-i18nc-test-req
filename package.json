@@ -1,7 +1,7 @@
 {
   "name": "i18nc-test-require",
-  "version": "2.0.0",
-  "description": "I18N JSON Code Tool",
+  "version": "1.0.0",
+  "description": "I18N Test Tool",
   "main": "index.js",
   "scripts": {
     "prepublish": "npm ls",
@@ -15,7 +15,8 @@
     "test-build": "cross-env TEST_BUILD=true mocha test/test_*"
   },
   "dependencies": {
-    "debug": "^4.0.1"
+    "debug": "^4.0.1",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
@@ -27,7 +28,6 @@
     "istanbul": "^0.4.5",
     "karma": "^3.0.0",
     "karma-config-brcjs": "^1.1.0",
-    "mkdirp": "^0.5.1",
     "mocha": "^5.2.0"
   },
   "repository": {
