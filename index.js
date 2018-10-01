@@ -81,7 +81,7 @@ function _require(file)
 		var tmp = data.toString();
 		if (_checkTextWrapCode(tmp))
 		{
-			return tmp.substr(25, tmp.length-28);
+			return tmp.substr(26, tmp.length-26-3);
 		}
 	}
 
@@ -97,5 +97,6 @@ function wrapCode4pkg(code)
 
 function _checkTextWrapCode(code)
 {
-	return code.substr(0, 24) == 'function textWrapCode(){';
+	return code.substr(0, 26) == 'function textWrapCode(){\n\n';
+}
 }
