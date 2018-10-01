@@ -1,12 +1,52 @@
 'use strict';
 
-var expect				= require('expect.js');
-var testReq				= require('../');
-var requireAfterWrite	= testReq('base');
-testReq.ROOT_PATH		= __dirname;
+var expect	= require('expect.js');
+var testReq	= require('../');
+
+testReq.ROOT_PATH	= __dirname;
 
 describe('#base', function()
 {
+	it('#require', function()
+	{
+		var requireAfterWrite = testReq('base');
+		expect(requireAfterWrite('base.json')).to.eql({data: 1});
+	});
+
+	describe('#check result', function()
+	{
+		beforeEach(function()
+		{
+			testReq.BUILD = false;
+		});
+		afterEach(function()
+		{
+			testReq.BUILD = false;
+		});
+
+		checkResult('base');
+	});
+
+	describe('#build', function()
+	{
+		beforeEach(function()
+		{
+			testReq.BUILD = true;
+		});
+		afterEach(function()
+		{
+			testReq.BUILD = false;
+		});
+
+		checkResult('tmp');
+	});
+});
+
+
+function checkResult(type)
+{
+	var requireAfterWrite = testReq(type);
+
 	it('#json', function()
 	{
 		var data = {data: 1};
@@ -69,4 +109,4 @@ describe('#base', function()
 		var otherData = requireAfterWrite('base_func.js', data);
 		expect(testReq.code2arr(data)).to.eql(testReq.code2arr(otherData));
 	});
-});
+}

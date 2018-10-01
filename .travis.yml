@@ -10,8 +10,6 @@ node_js:
 script:
   - npm run lint
   - npm run test-travis
-  # 为测试覆盖率，增加的测试项
-  - npm run test-build
 
 after_script:
   - npm install coveralls@2 && cat ./coverage/lcov.info | coveralls
