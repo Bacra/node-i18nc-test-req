@@ -42,10 +42,12 @@ function requireAfterWriteReal(file, data)
 		case 'string':
 			if (data.substr(0, 14) != 'module.exports')
 			{
+				var codeLens = data.match(/\n\S+/g);
 				if (data.substr(0, 8) == 'function'
 					&& !_checkTextWrapCode(data)
 					// 如果包含function，但内容有超过3行，那可能就不是单纯的func了
-					&& data.match(/\n\S+/g).length <= 3)
+					&& (!codeLens || codeLens.length <= 3)
+					&& /\};?\s*$/.test(data))
 				{
 					data = 'module.exports = '+data+'\n';
 				}
