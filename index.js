@@ -40,7 +40,7 @@ function requireAfterWriteReal(file, data)
 			break;
 
 		case 'string':
-			if (data.substr(0, 14) != 'module.exports')
+			if (!/module\.exports *=/.test(data))
 			{
 				var codeLens = data.match(/\n\S+/g);
 				if (data.substr(0, 8) == 'function'
