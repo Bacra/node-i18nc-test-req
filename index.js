@@ -4,7 +4,7 @@
 var fs		= require('fs');
 var path	= require('path');
 var mkdirp	= require('mkdirp');
-var debug	= require('debug')('i18nc-test-require');
+var debug	= require('debug')('i18nc-test-req');
 
 exports = module.exports = requireAfterWrite;
 exports.ROOT_PATH = __dirname;

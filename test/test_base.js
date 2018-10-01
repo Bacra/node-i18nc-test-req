@@ -1,9 +1,9 @@
 'use strict';
 
 var expect				= require('expect.js');
-var testRequire			= require('../');
-var requireAfterWrite	= testRequire('base');
-testRequire.ROOT_PATH	= __dirname;
+var testReq				= require('../');
+var requireAfterWrite	= testReq('base');
+testReq.ROOT_PATH		= __dirname;
 
 describe('#base', function()
 {
@@ -33,7 +33,7 @@ describe('#base', function()
 			data = data.toString();
 
 			var otherData = requireAfterWrite('base_string_func.js', data);
-			expect(testRequire.code2arr(data)).to.eql(testRequire.code2arr(otherData));
+			expect(testReq.code2arr(data)).to.eql(testReq.code2arr(otherData));
 		});
 
 		it('#function width outcode', function()
@@ -46,7 +46,7 @@ describe('#base', function()
 			data = data.toString()+'\n var dd = 1;';
 
 			var otherData = requireAfterWrite('base_string_func2.js', data);
-			expect(testRequire.code2arr(data)).to.eql(testRequire.code2arr(otherData));
+			expect(testReq.code2arr(data)).to.eql(testReq.code2arr(otherData));
 		});
 
 		it('#module.exports', function()
@@ -67,6 +67,6 @@ describe('#base', function()
 		}
 
 		var otherData = requireAfterWrite('base_func.js', data);
-		expect(testRequire.code2arr(data)).to.eql(testRequire.code2arr(otherData));
+		expect(testReq.code2arr(data)).to.eql(testReq.code2arr(otherData));
 	});
 });
