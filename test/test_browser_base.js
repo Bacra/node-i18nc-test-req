@@ -3,7 +3,7 @@
 var expect			= require('expect.js');
 var testReq			= require('../');
 var checkResult		= require('./check_result');
-testReq.ROOT_PATH	= __dirname;
+testReq.ROOT_PATH	= __dirname + '/output';
 
 describe('#base', function()
 {

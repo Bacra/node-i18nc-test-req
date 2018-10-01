@@ -1,9 +1,8 @@
 'use strict';
 
-var expect	= require('expect.js');
-var testReq	= require('../');
-
-testReq.ROOT_PATH	= __dirname;
+var expect			= require('expect.js');
+var testReq			= require('../');
+testReq.ROOT_PATH	= __dirname + '/output';
 
 module.exports = checkResult;
 function checkResult(type)
