@@ -8,13 +8,13 @@ module.exports = function(config)
 	commonConfig(config, require('./package.json'));
 
 	var files = [];
-	files = files.concat(glob.sync('files/output/**', {cwd: __dirname+'/test/', nodir: true}));
+	files = files.concat(glob.sync('output/**', {cwd: __dirname+'/test/', nodir: true}));
 
 	config.set(
 	{
-		basePath: 'dist/test/',
-		files: ['browser/test_*.js'],
-		preprocessors: {'browser/test_*.js': ['browserify']},
+		basePath: 'test/',
+		files: ['test_*.js'],
+		preprocessors: {'test_*.js': ['browserify']},
 		browserify:
 		{
 			debug: true,
