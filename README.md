@@ -46,7 +46,7 @@ cross-env TEST_BUILD=true mocha test/test_*
 [npm-image]: http://img.shields.io/npm/v/i18nc-test-req.svg
 [downloads-image]: http://img.shields.io/npm/dm/i18nc-test-req.svg
 [npm-url]: https://www.npmjs.org/package/i18nc-test-req
-[travis-image]: https://travis-ci.com/Bacra/node-i18nc-test-require.svg?branch=master
+[travis-image]: https://travis-ci.com/Bacra/node-i18nc-test-req.svg?branch=master
 [travis-url]: https://travis-ci.com/Bacra/node-i18nc-test-req
 [coveralls-image]: https://img.shields.io/coveralls/Bacra/node-i18nc-test-req.svg
 [coveralls-url]: https://coveralls.io/github/Bacra/node-i18nc-test-req
