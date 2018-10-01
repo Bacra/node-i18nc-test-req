@@ -61,7 +61,7 @@ describe('#base', function()
 
 	it('#function', function()
 	{
-		var data = function()
+		var data = function code()
 		{
 			console.log(11);
 		}
