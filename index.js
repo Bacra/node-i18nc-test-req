@@ -6,6 +6,8 @@ var path	= require('path');
 var mkdirp	= require('mkdirp');
 var debug	= require('debug')('i18nc-test-req');
 
+var ArraySlice = Array.prototype.slice;
+
 exports = module.exports = requireAfterWrite;
 exports.ROOT_PATH = __dirname;
 exports.BUILD = false;
@@ -14,10 +16,12 @@ function requireAfterWrite(subpath)
 {
 	var file_path = 'output/'+subpath;
 
-	return function(filename, data, options)
+	return function(filename)
 	{
 		var file = file_path+'/'+filename;
-		return requireAfterWriteReal(file, data, options);
+		var args = ArraySlice.call(arguments);
+		args[0] = file;
+		return requireAfterWriteReal.apply(this, args);
 	};
 }
 
