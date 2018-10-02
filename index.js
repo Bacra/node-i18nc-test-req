@@ -23,14 +23,16 @@ function requireAfterWrite(subpath)
 	};
 }
 
+exports.isBuild = isBuild;
+function isBuild()
+{
+	return exports.BUILD || process.env.TEST_BUILD;
+}
+
 exports.requireAfterWriteReal = requireAfterWriteReal;
 function requireAfterWriteReal(file, data)
 {
-	if (arguments.length == 1) return _require(file);
-	if (!exports.BUILD && !process.env.TEST_BUILD)
-	{
-		return _require(file);
-	}
+	if (arguments.length == 1 || !isBuild()) return _require(file);
 
 	var type = typeof data;
 	switch(type)
