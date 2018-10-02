@@ -76,9 +76,15 @@ function requireAfterWriteReal(file, data)
 	return _require(file);
 }
 
+exports.resolve = resolve;
+function resolve(file)
+{
+	return path.normalize(exports.ROOT_PATH + '/' + file);
+}
+
 function _require(file)
 {
-	var file = path.normalize(exports.ROOT_PATH + '/' + file);
+	file = resolve(file);
 	// for browserify require key
 	var data = require(file);
 
